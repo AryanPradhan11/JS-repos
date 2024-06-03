@@ -20,6 +20,12 @@ const obj1 = {
 // console.log(typeof mySym)
 // console.log(obj1["name"])
 
-Object.freeze(obj1) //cannot mutate
+ //cannot mutate
 obj1.name = "JSON"
 console.log(obj1)
+
+obj1.greetings = function() {
+    console.log(`Hello ${this.name}`)
+}
+
+console.log(obj1.greetings()) //undefined
