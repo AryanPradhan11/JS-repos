@@ -31,3 +31,7 @@ const price = 100
 // condition ? true: false
 
 price > 100 ? console.log(true) : console.log(false)
+
+
+const name = '' ?? 10
+console.log(name)
