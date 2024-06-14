@@ -6,7 +6,7 @@
 
 # Solution code
 
-## PROJECT 1
+## PROJECT 1 SOLUTION
 
 ``` javascript 
 const buttons = document.querySelectorAll('.button');
@@ -30,5 +30,37 @@ buttons.forEach(function (button) {
       body.style.backgroundColor = event.target.id;
     }
   });
+});
+```
+
+
+## PROJECT 2 SOLUTION
+
+``` javascript
+const form = document.querySelector('form');
+
+form.addEventListener('submit', function (event) {
+  event.preventDefault();
+
+  const height = parseInt(document.querySelector('#height').value);
+  const weight = parseInt(document.querySelector('#weight').value);
+  const results = document.querySelector('#results');
+  const status = document.querySelector('#status');
+
+  if (height === '' || height < 0 || isNaN(height)) {
+    results.innerHTML = `Please insert right value for height`;
+  } else if (weight === '' || weight < 0 || isNaN(weight)) {
+    results.innerHTML = `The inserted value is below 0`;
+  } else {
+    const BMIvalue = (weight / height / height) * 10000;
+    results.innerHTML = `<span>${BMIvalue}</span>`;
+    if (BMIvalue < 18.6) {
+      status.innerHTML = 'Under Weight';
+    } else if (BMIvalue >= 18.6 && BMIvalue <= 24.9) {
+      status.innerHTML = 'Normal Range';
+    } else if (BMIvalue > 24.9) {
+      status.innerHTML = 'Overweight';
+    }
+  }
 });
 ```
